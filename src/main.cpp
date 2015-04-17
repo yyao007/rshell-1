@@ -18,5 +18,24 @@ using namespace std;
 
 int main()
 {
+		char hostname[];
+		string login;
+
+		login = getlogin();
+
+		if (getlogion() == NULL)
+		{
+				perror("getlogin()");
+		}
+
+		if ((gethostname(hostname, sizeof(hostname)-1))==-1)
+		{
+				perror("gethostname()");
+		}
+
+		while (1)
+		{
+				cout << login << "@" << hostname << "$ ";
+		}
 		return 0;
 }
