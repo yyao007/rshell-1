@@ -12,7 +12,36 @@
 
 int look_args(char **);
 void exec_cmd(int, char **);
-bool quit(string);
+bool terminate(string);
+
+void exec_cmd(int, char**)
+{
+	pid_t pid;
+	pid = fork();
+
+	if (pid < 0)
+	{
+		perror("pid");
+	}
+	else if (pid == 0)
+	{
+		execvp(argv, argv)
+		perror("execv");
+	}
+	else
+	{
+		waitpid(NULL);
+	}
+
+}
+
+bool terminate(string cmd)
+{
+	for (int i = 0; i < cmd.length(); i++)
+	{
+		cmd[i] = tolower(cmd[i]);
+	}
+}
 
 using namespace std;
 
