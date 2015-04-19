@@ -27,22 +27,29 @@ void exec_cmd(int, char**)
 	pid = fork();
 	
 	//in neither
-	if (pid < 0)
+	if (pid == -1)
 	{
 		perror("fork");
+		exit(1);
 	}
 
 	else if (pid == 0) //in child
 	{
 		if ((execvp(argv, argv) == -1)
-		perror("execv");
+		{
+			perror("execv");
+		}
+		exit(1);
 	}
-	else //in parent
+	else if(pid>0) //in parent
 	{
-		waitpid(NULL);
-		perror("waitpid");
+		//int status;
+		wait(NULL);
+		if (wait(0) == -1)
+		{
+			perror("waitpid");
+		}
 	}
-
 }
 
 bool terminate(string cmd)
