@@ -18,24 +18,26 @@ using namespace std;
 
 int main()
 {
-		char hostname[];
-		string login;
 
-		login = getlogin();
+	char hostname[];
+	string login;
 
-		if (getlogion() == NULL)
-		{
-				perror("getlogin()");
-		}
+	login = getlogin();
 
-		if ((gethostname(hostname, sizeof(hostname)-1))==-1)
-		{
-				perror("gethostname()");
-		}
+	if (getlogion() == NULL)
+	{
 
-		while (1)
-		{
-				cout << login << "@" << hostname << "$ ";
-		}
+		perror("getlogin()");
+	}
+
+	if ((gethostname(hostname, sizeof(hostname)-1))==-1)
+	{
+		perror("gethostname()");
+	}
+
+	while (1)
+	{
+		cout << login << "@" << hostname << "$ ";
+	}
 		return 0;
 }
