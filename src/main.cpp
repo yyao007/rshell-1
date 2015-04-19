@@ -14,6 +14,13 @@ int look_args(char **);
 void exec_cmd(int, char **);
 bool terminate(string);
 
+
+int look_args(char **)
+{
+
+
+}
+
 void exec_cmd(int, char**)
 {
 	pid_t pid;
@@ -47,8 +54,12 @@ using namespace std;
 
 int main()
 {
+	const int MAX[50];
+	char *argv[MAX]
+	int argc;
+	
 
-	char hostname[];
+	char hostname[MAX];
 	string login;
 
 	login = getlogin();
@@ -67,6 +78,13 @@ int main()
 	while (1)
 	{
 		cout << login << "@" << hostname << "$ ";
+		argc = look_args(argv);
+		exec_cmd(argc, argv);
+
+		for (int i = 0; i < argc; i++)
+		{
+			argv[i] = NULL;
+		}
 	}
 		return 0;
 }
