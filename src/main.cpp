@@ -25,19 +25,22 @@ void exec_cmd(int, char**)
 {
 	pid_t pid;
 	pid = fork();
-
+	
+	//in neither
 	if (pid < 0)
 	{
-		perror("pid");
+		perror("fork");
 	}
-	else if (pid == 0)
+
+	else if (pid == 0) //in child
 	{
-		execvp(argv, argv)
+		if ((execvp(argv, argv) == -1)
 		perror("execv");
 	}
-	else
+	else //in parent
 	{
 		waitpid(NULL);
+		perror("waitpid");
 	}
 
 }
@@ -52,21 +55,22 @@ bool terminate(string cmd)
 
 using namespace std;
 
-int main()
+int main(int argc, char ** argv)
 {
 	const int MAX[50];
-	char *argv[MAX]
-	int argc;
+	//char *argv[MAX]
+	//int argc;
 	
 
+	//login in for host
 	char hostname[MAX];
 	string login;
 
 	login = getlogin();
 
+	//error checks
 	if (getlogion() == NULL)
 	{
-
 		perror("getlogin()");
 	}
 
@@ -80,7 +84,7 @@ int main()
 		cout << login << "@" << hostname << "$ ";
 		argc = look_args(argv);
 		exec_cmd(argc, argv);
-
+	
 		for (int i = 0; i < argc; i++)
 		{
 			argv[i] = NULL;
