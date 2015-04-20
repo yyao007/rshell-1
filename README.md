@@ -25,3 +25,6 @@ Known Bugs
 ---
 
 Unable to do the following:
+
+Cannot parse commands with &&, ||, or ; connectors.
+
